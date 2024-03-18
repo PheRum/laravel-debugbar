@@ -265,7 +265,7 @@ class LaravelDebugbar extends DebugBar
                                 $logMessage = (string) $log->message;
                                 if (mb_check_encoding($logMessage, 'UTF-8')) {
                                     $context = $log->context;
-                                    $logMessage .= (!empty($context) ? ' ' . json_encode($context, JSON_PRETTY_PRINT) : '');
+                                    $logMessage .= (!empty($context) ? ' ' . json_encode($context, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) : '');
                                 } else {
                                     $logMessage = "[INVALID UTF-8 DATA]";
                                 }
